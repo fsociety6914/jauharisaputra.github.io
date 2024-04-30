@@ -4,7 +4,7 @@
 }
 
 #gallery {
-    background-color: #e2edff
+    background-color: #10397c
 }
 
 section {
@@ -12,5 +12,6 @@ section {
 }
 
 button {
-    color: aqua;
+    color: white;
+    background-color: blue;
 }
