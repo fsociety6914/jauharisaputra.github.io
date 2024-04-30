@@ -202,20 +202,31 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-3">
-                    <form>
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Nama</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp">
-                            <div id="emailHelp" class="form-text">Masukkan nama lengkap Anda.</div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Pesan</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1">
-                        </div>
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
 
-                        <button type="submit" class="btn btn-success mb-4">Kirim</button>
+                    <form name="submit-to-google-sheet">
+                        <input name="email" type="email" placeholder="Email" required>
+                        <button type="submit">Send</button>
                     </form>
+
+                    <script>
+                        const scriptURL =
+                            'https://script.google.com/macros/s/AKfycbyKdoF0wIH9HzYBo_DxzIUg9c92V0SwXar-mcIhviVzuY8ch0xUVE2zz54PDKfirLlIvg/exec'
+                        const form = document.forms['submit-to-google-sheet']
+
+                        form.addEventListener('submit', e => {
+                            e.preventDefault()
+                            fetch(scriptURL, {
+                                    method: 'POST',
+                                    body: new FormData(form)
+                                })
+                                .then(response => console.log('Success!', response))
+                                .catch(error => console.error('Error!', error.message))
+                        })
+                    </script>
                 </div>
             </div>
         </div>
