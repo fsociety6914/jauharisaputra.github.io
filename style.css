@@ -10,3 +10,7 @@
 section {
     padding-top: 5rem;
 }
+
+button {
+    color: btn-success;
+}
