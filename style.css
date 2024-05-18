@@ -1,0 +1,9 @@
+th,
+td {
+    border: 1px solid;
+}
+
+h1 {
+    font-style: italic;
+    color: blue;
+}
